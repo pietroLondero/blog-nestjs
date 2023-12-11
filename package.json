@@ -1,0 +1,69 @@
+{
+  "name": "@pietro/blog",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest  --runInBand --detectOpenHandles",
+    "local": "nest build && yalc publish",
+    "test:watch": "jest --watch  --runInBand --detectOpenHandles",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/passport": "^10.0.3",
+    "@nestjs/schematics": "^10.0.0",
+    "@nestjs/swagger": "^7.1.16",
+    "@nestjs/typeorm": "^10.0.0",
+    "@pietro/auth": "file:.yalc/@pietro/auth",
+    "@pietro/blog": "file:.yalc/@pietro/blog",
+    "@pietro/common": "file:.yalc/@pietro/common",
+    "@pietro/products": "file:.yalc/@pietro/products",
+    "bcrypt": "^5.1.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "mysql2": "^3.6.5",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "tsc-watch": "^6.0.4",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@nestjs/platform-express": "^10.2.10",
+    "@nestjs/testing": "^10.0.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jest": "^29.5.10",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/passport-jwt": "^3.0.13",
+    "@types/passport-local": "^1.0.38",
+    "better-sqlite3": "^8.7.0",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1"
+  },
+  "publishConfig": {
+    "@my-org:registry": "https://gitlab.com/api/v4/projects/52755316/packages/npm/"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "transformIgnorePatterns": [
+      "/node_modules/(?![/@]pietro/)"
+    ]
+  }
+}
